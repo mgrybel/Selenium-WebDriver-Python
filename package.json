@@ -9,6 +9,7 @@
   "author": "MG",
   "license": "ISC",
   "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
     "stepDefinitions": "cypress/support/stepDefinitions/**/*.js"
   },
   "devDependencies": {
