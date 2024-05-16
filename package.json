@@ -4,7 +4,10 @@
   "description": "Cypress Automation Framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "regression-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
+    "regression-headless": "cypress run --spec 'cypress/e2e/*.feature'",
+    "smoke-chrome": "cypress run -e TAGS='@smoke' --headed --browser chrome"
   },
   "author": "MG",
   "license": "ISC",
