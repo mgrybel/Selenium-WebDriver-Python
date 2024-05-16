@@ -8,16 +8,12 @@ Given('I access the E-commerce Website login page', () => {
   cy.visit(baseUrl + '/login');
 });
 
-When('I enter an email', () => {
-  cy.get('#email').type('customer@test.com');
+When('I enter an email {string}', (email) => {
+  cy.get('#email').type(email);
 });
 
-When('I enter a valid password', () => {
-  cy.get('#password').type('test123');
-});
-
-When('I enter an ivalid password', () => {
-  cy.get('#password').type('pass123');
+When('I enter a password {string}', (password) => {
+  cy.get('#password').type(password);
 });
 
 When('I click on the Login button', () => {
