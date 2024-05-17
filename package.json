@@ -5,15 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "regression-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
-    "regression-headless": "cypress run --spec 'cypress/e2e/*.feature'",
-    "smoke-chrome": "cypress run -e TAGS='@smoke' --headed --browser chrome"
+    "regression-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature' && node cucumberHtmlReport.js",
+    "regression-headless": "cypress run --spec 'cypress/e2e/*.feature' && node cucumberHtmlReport.js",
+    "smoke-chrome": "cypress run -e TAGS='@smoke' --headed --browser chrome && node cucumberHtmlReport.js"
   },
   "author": "MG",
   "license": "ISC",
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "stepDefinitions": "cypress/support/stepDefinitions/**/*.js"
+    "stepDefinitions": "cypress/support/stepDefinitions/**/*.js",
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumberHtml/cucumberReport.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumberNdjson/cucumberReport.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/cucumberJson/cucumberReport.json"
+    }
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
@@ -21,6 +34,7 @@
     "cypress": "^13.9.0",
     "cypress-if": "^1.12.0",
     "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.6.2",
     "ts-loader": "^9.5.1"
   }
 }
