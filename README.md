@@ -1,6 +1,6 @@
 # E2E Testing using Cypress
 
-Automated end-to-end tests of an e-commerce application built using **Cypress** with **JavaScript**.
+Automated end-to-end tests of an e-commerce application built using **Cypress** and **Cucumber**.
 
 ## System Under Test (SUT)
 
